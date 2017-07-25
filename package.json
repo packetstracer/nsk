@@ -8,18 +8,18 @@
     "debug": "node --debug-brk=61677 --expose-debug-as=v8debug server.js"
   },
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "buffer": "^5.0.1",
+    "body-parser": "^1.17.2",
+    "buffer": "^5.0.6",
     "colors": "^1.1.2",
     "cookie-parser": "^1.4.3",
-    "express": "^4.14.0",
-    "glob": "^7.0.5",
-    "influx": "^5.0.0-alpha.4",
+    "express": "^4.15.3",
+    "glob": "^7.1.2",
+    "influx": "^5.0.7",
     "jade": "^1.11.0",
-    "lodash": "^4.17.2",
-    "mongoose": "^4.5.7",
-    "request": "^2.78.0",
-    "serve-favicon": "^2.3.0",
-    "socket.io": "^1.4.8"
+    "lodash": "^4.17.4",
+    "mongoose": "^4.11.4",
+    "request": "^2.81.0",
+    "serve-favicon": "^2.4.3",
+    "socket.io": "^2.0.3"
   }
 }
