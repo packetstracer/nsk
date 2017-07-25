@@ -1,0 +1,8 @@
+{
+  "code": 200,
+  "delay": 100,
+
+  "response": {
+    "message": "GET test2 200 response"
+  }
+}

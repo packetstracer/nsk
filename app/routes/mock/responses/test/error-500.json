@@ -1,0 +1,8 @@
+{
+  "code": 500,
+  "delay": 3000,
+
+  "response": {
+    "message": "Internal Server Error: test"
+  }
+}

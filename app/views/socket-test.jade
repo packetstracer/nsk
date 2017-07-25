@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  link(rel='stylesheet', href='/css/socket-test.css')
+
+  h2 COP Socket test
+
+  div#socket-test
+    ul#messages
+
+    input#message(type='text', name='message', paceholder='type your message...')
+    input#send-button(type='button', value='Send')
+
+
+  script(type='text/javascript', src='/socket.io/socket.io.js')
+  script(type='text/javascript', src='/js/socket-test.js')

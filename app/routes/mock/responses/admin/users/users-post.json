@@ -1,0 +1,11 @@
+{
+  "code": 200,
+  "delay": 1000,
+
+  "response": {
+    "result":{
+      "code":200,
+      "info":"User updated"
+    }
+  }
+}

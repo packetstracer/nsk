@@ -1,0 +1,65 @@
+{
+  "code": 200,
+  "delay": 1000,
+
+  "response": {
+    "result":
+    {
+      "code": 206,
+      "info": "Partial Content"
+    },
+    "pagination": {
+      "operations_flag": "2",
+      "next_operation_nr": "665"
+    },
+    "data":[
+      {
+        "operation_number": "751",
+        "posted_date": "2015-27-01T00:00:00",
+        "description": "TRANSFER FROM DWOLLA",
+        "reversal_id": "041151126",
+        "amount": 2,
+        "balance": 2044.44,
+        "currency": "USD",
+        "check_number": "0",
+        "links": [
+          {
+            "rel": "self",
+            "href": "http://localhost:8080/open-il-web/api/accounts/transactions/01-5687",
+            "title": "Get Transactions",
+            "method": "GET"
+          },
+          {
+            "rel": "details",
+            "href": "http://localhost:8080/open-il-web/api/accounts/01-5687",
+            "title": "Get Account Detail",
+            "method": "GET"
+          }
+        ]
+      },
+      {
+        "operation_number": "752",
+        "posted_date": "2015-22-01T00:00:00",
+        "description": "TRANSFER FROM ANOTHER APP",
+        "amount": -5,
+        "balance": 2044.44,
+        "currency": "USD",
+        "check_number": "0",
+        "links": [
+          {
+            "rel": "self",
+            "href": "http://localhost:8080/open-il-web/api/accounts/transactions/01-5687",
+            "title": "Get Transactions",
+            "method": "GET"
+          },
+          {
+            "rel": "details",
+            "href": "http://localhost:8080/open-il-web/api/accounts/01-5687",
+            "title": "Get Account Detail",
+            "method": "GET"
+          }
+        ]
+      }]
+  }
+}
+

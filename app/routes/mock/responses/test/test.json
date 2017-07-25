@@ -1,0 +1,13 @@
+{
+  "code": 200,
+  "delay": 0,
+
+  "response": {
+    "data": {
+      "id": 12345678,
+      "name": "Entity name",
+      "value": 12345,
+      "currency": "EUR"
+    }
+  }
+}

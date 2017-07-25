@@ -1,0 +1,15 @@
+#socket-test ul#messages {
+    height: 120px;
+    background-color: lightcoral;
+    overflow: scroll;
+    padding: 1rem 2rem;
+}
+
+#socket-test #messages li {
+    list-style-type: none;
+    padding-bottom: 0.2rem;
+}
+
+#socket-test input#message {
+    margin-right: 1rem;
+}
