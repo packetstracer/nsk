@@ -25,11 +25,11 @@ router.get('/', function (req, res) {
 
 
 router.get('/test', function (req, res) {
-             res.json({
-                        status: 200,
-                        message: 'Node Server Kit -> API Test Endpoint response OK!!!'
-                      });
-           }
+    res.json({
+      status: 200,
+      message: 'Node Server Kit -> API Test Endpoint response OK!!!'
+    });
+  }
 );
 
 

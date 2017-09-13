@@ -8,6 +8,7 @@ var endpoints = {
   ],
   'test2': {action: 'GET', uri: '/test2', file: 'test2'},
 
+
   'auth': {
     action: 'POST',
     uri   : '/auth/tsec/token',
