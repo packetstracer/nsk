@@ -10,7 +10,7 @@ var conf = {
     type   : 'mongo',
     enabled: false,
     url    : 'mongodb://localhost',
-    dbName : 'cop-api-node'
+    dbName : 'nsk-api-node'
   },
 
   socket: {

@@ -1,5 +1,5 @@
 {
-  "name": "cop-node-api",
+  "name": "nsk-node-api",
   "main": "server.js",
   "version": "0.0.0",
   "private": true,

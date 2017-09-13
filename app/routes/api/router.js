@@ -157,7 +157,7 @@ router
 
 
 /////////////////
-// COP API Proxy
+// NSK API Proxy
 /////////////////
 
 //  Auth Token

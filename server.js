@@ -72,7 +72,7 @@ function startServers(conf) {
   var server = http.createServer(app);
 
   server.listen(conf.port, function () {
-    console.log('COP Server on port %s', conf.port);
+    console.log('NSK Server on port %s', conf.port);
   });
 
   if (conf.sslEnabled) {
@@ -85,7 +85,7 @@ function startServers(conf) {
     };
 
     https.createServer(options, app).listen(conf.sslPort, function () {
-      console.log('COP Server SSL on port %s', conf.sslPort);
+      console.log('NSK Server SSL on port %s', conf.sslPort);
     });
   }
 
