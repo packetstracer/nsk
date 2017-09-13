@@ -18,7 +18,6 @@ var conf = {
     //port   : 4002,
     dictionaries: [
       'general',
-      'test',
       'lkx'
     ]
   },

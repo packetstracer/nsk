@@ -53,7 +53,7 @@ RskApi.prototype.generateFullToken = function () {
   }
 
   return this.session.auth.type + ' ' + this.session.auth.token;
-}
+};
 
 
 RskApi.prototype.generateUrl = function (endpoint, protocol, params) {

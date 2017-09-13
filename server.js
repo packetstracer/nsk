@@ -75,7 +75,7 @@ function startServers(conf) {
     console.log('COP Server on port %s', conf.port);
   });
 
-  if (!!conf.sslEnabled) {
+  if (conf.sslEnabled) {
     var hskey = fs.readFileSync('./certs/lkxa-key.pem');
     var hscert = fs.readFileSync('./certs/lkxa-cert.pem');
 
@@ -89,7 +89,7 @@ function startServers(conf) {
     });
   }
 
-  if (!!conf.socket.enabled) {
+  if (conf.socket.enabled) {
     var io = socket(server);
     registerSocketDictionaries(io, conf.socket.dictionaries);
   }
@@ -98,29 +98,29 @@ function startServers(conf) {
 
 function registerSocketDictionaries(io, dictionaries) {
   dictionaries.map(function (name) {
-    var messages = require('./app/socket/' + name + 'Messages');
-    registerSocketMessages(io, messages);
+    var dictionary = require('./app/socket/' + name + 'Dictionary');
+    registerSocketMessages(io, dictionary);
   });
 }
 
 
-function registerSocketMessages(io, messages) {
+function registerSocketMessages(io, dictionary) {
   try {
-    io.on(
+    var nsp = io.of(dictionary.namespace);
+
+    nsp.on(
       'connection', function (socket) {
-        console.log('Socket connection by client, id: ' + socket.id);
+        console.log('Socket (%s) connection by client - id: %s', dictionary.namespace, socket.id);
 
-        Object.keys(messages).map(function (id) {
-          var msg = messages[id];
+        Object.keys(dictionary.messages).map(function (id) {
+          var msg = dictionary.messages[id];
 
+          joinSocketRoom(socket, msg);
+
+          console.log('Registering message in namespace#socket: %s - client: %s', socket.id, id);
           socket.on(id, function (ev) {
-            console.log('Socket message received: ' + ev.message);
-            msg.callback(ev);
-
-            if (!!msg.response && !!msg.response.id) {
-              console.log('Socket message sent: %s - %s', msg.response.id, msg.response.data(ev, socket).message);
-              io.emit(msg.response.id, msg.response.data(ev, socket));
-            }
+            !!msg.callback && msg.callback(ev);
+            emitSocketMessage(socket, msg, ev);
           });
         });
       }
@@ -131,6 +131,37 @@ function registerSocketMessages(io, messages) {
     throw(e);
   }
 }
+
+
+function joinSocketRoom(socket, msg) {
+  if (!!msg.room) { // && !socket.adapter.rooms[msg.room]
+    console.log('Socket joining room "%s" by client: %s', msg.room, socket.id);
+    socket.join(msg.room);
+  }
+}
+
+
+function emitSocketMessage(socket, msg, ev) {
+  // var source = (!!msg.room) ? socket.to(msg.room) : socket;
+
+  if (!!msg.response && !!msg.response.id) {
+    console.log('Socket sending message to client %s in room %s: %s', socket.id, msg.room, msg.response.id);
+    socket.emit(msg.response.id, msg.response.data(ev, socket));
+  }
+
+  if (!!msg.broadcast && !!msg.broadcast.id) {
+    console.log('Socket broadcasting message by client %s: %s', socket.id, msg.broadcast.id);
+
+    // if in a room just broadcast into the room
+    if (!!msg.room) {
+      socket.in(msg.room).emit(msg.broadcast.id, msg.broadcast.data(ev, socket));
+    }
+    else {
+      socket.broadcast.emit(msg.broadcast.id, msg.broadcast.data(ev, socket));
+    }
+  }
+}
+
 
 function createErrorHandling(env) {
   // catch 404 and forward to error handler
