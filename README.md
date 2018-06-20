@@ -1,4 +1,10 @@
 # nsk
-Node/Express Starter Kit
+Node/Express Starter Kit 
 
-WIP... 
+Features:
+- Static web server
+- MVC: mongoDB for the models, pug for the views
+- Rest API Server with mocking included
+- Socket Server: socketIO
+
+WIP...
