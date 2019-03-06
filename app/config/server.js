@@ -1,4 +1,4 @@
-var conf = {
+const conf = {
   env: 'dev',
 
   port: 4000,
@@ -46,7 +46,7 @@ var conf = {
       urlPrefix: '/mock'
     }
   }
-};
+}
 
 
-module.exports = conf;
+module.exports = conf

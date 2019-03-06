@@ -1,4 +1,4 @@
-var lkxDictionary = {
+const lkxDictionary = {
   'namespace': '/lkx-sparq',
 
   messages: {
@@ -12,14 +12,14 @@ var lkxDictionary = {
       response: {
         id  : 'socket-lkx:message-received',
         data: function (ev) {
-          return { message: 'SERVER RESPONSE: ' + ev.message };
+          return { message: 'SERVER RESPONSE: ' + ev.message }
         }
       },
 
       broadcast: {
         id  : 'socket-lkx:message-received',
         data: function (ev) {
-          return { message: 'SERVER BROADCAST RESPONSE: ' + ev.message };
+          return { message: 'SERVER BROADCAST RESPONSE: ' + ev.message }
         }
       }
     },
@@ -28,18 +28,18 @@ var lkxDictionary = {
       room: 'pinpad',
 
       callback: function (ev) {
-        console.log('Socket executing callback');
+        console.log('Socket executing callback')
       },
 
       response: {
         id  : 'test-message-received',
         data: function (ev) {
-          return { message: 'TEST MESSAGE RECEIVED: ' + ev.message };
+          return { message: 'TEST MESSAGE RECEIVED: ' + ev.message }
         }
       }
     }
   }
-};
+}
 
 
-module.exports = lkxDictionary;
+module.exports = lkxDictionary

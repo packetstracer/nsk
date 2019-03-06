@@ -1,19 +1,17 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 
-var mongodbServer = {
-
+const mongodbServer = {
   connectDb: function (conf) {
     try {
-      mongoose.connect(conf.url + '/' + conf.dbName);
+      mongoose.connect(conf.url + '/' + conf.dbName)
     }
     catch (e) {
-      console.log('Api router Error: %s', e.message);
-      throw(e);
+      console.log('Api router Error: %s', e.message)
+      throw(e)
     }
   }
+}
 
-};
 
-
-module.exports = mongodbServer;
+module.exports = mongodbServer

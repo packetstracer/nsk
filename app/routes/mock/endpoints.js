@@ -1,5 +1,5 @@
 // endpoint definitions
-var endpoints = {
+const endpoints = {
   'test' : [
     {action: 'GET', uri: '/test', file: 'test'},
     {action: 'POST', uri: '/test', file: 'ok-200'},
@@ -51,7 +51,7 @@ var endpoints = {
     uri   : '/v1/api/admin/recon/empty',
     file  : 'empty'
   },
-};
+}
 
 
-module.exports = endpoints;
+module.exports = endpoints

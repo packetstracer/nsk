@@ -1,14 +1,14 @@
-var generalDictionary = {
+const generalDictionary = {
   'namespace': '/general',
 
   messages: {
     'disconnect': {
       callback: function (socketId) {
-        console.log('Socket disconnected by client, id: ' + socketId);
+        console.log('Socket disconnected by client, id: ' + socketId)
       }
     }
   }
-};
+}
 
 
-module.exports = generalDictionary;
+module.exports = generalDictionary
