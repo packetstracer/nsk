@@ -15,9 +15,9 @@
     "express": "^4.15.3",
     "glob": "^7.1.2",
     "influx": "^5.0.7",
-    "jade": "^1.11.0",
     "lodash": "^4.17.4",
-    "mongoose": "^4.11.4",
+    "mongoose": "^5.4.17",
+    "pug": "^2.0.3",
     "request": "^2.81.0",
     "serve-favicon": "^2.4.3",
     "socket.io": "^2.0.3"
