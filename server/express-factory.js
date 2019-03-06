@@ -1,7 +1,7 @@
 var express      = require('express');
 var bodyParser   = require('body-parser');
 var cookieParser = require('cookie-parser');
-var favicon      = require('serve-favicon');
+// var favicon      = require('serve-favicon');
 
 var app;
 
@@ -29,7 +29,7 @@ var expressAppFactory = {
 
 
   configApp: function () {
-    app.set('view engine', 'jade');
+    app.set('view engine', 'pug');
     app.set('views', './app/views');
 
     // set App middleware stack
