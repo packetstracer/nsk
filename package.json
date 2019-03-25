@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js",
-    "debug": "node --debug-brk=61677 --expose-debug-as=v8debug server.js"
+    "start": "node src/server.js",
+    "debug": "node --debug-brk=61677 --expose-debug-as=v8debug src/server.js"
   },
   "dependencies": {
     "body-parser": "^1.17.2",

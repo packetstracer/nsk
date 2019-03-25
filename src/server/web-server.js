@@ -1,10 +1,11 @@
-const http  = require('http')
+const fs = require('fs')
+const http = require('http')
 const https = require('https')
-const fs    = require('fs')
+
+const mainConsts = require('../const/main.const')
 
 let server
 let sslServer
-
 
 const webServer = {
 
@@ -18,15 +19,13 @@ const webServer = {
     return webServer
   },
 
-
   getServer: function (ssl = false) {
-    return (!ssl) ? server : sslServer
+    return !ssl ? server : sslServer
   },
 
-
   createSslServer: function (app, conf) {
-    const hskey = fs.readFileSync('./certs/lkxa-key.pem')
-    const hscert = fs.readFileSync('./certs/lkxa-cert.pem')
+    const hskey = fs.readFileSync(`${mainConsts.CERTS_PATH}/lkxa-key.pem`)
+    const hscert = fs.readFileSync(`${mainConsts.CERTS_PATH}/lkxa-cert.pem`)
 
     const options = {
       key: hskey,
@@ -39,8 +38,6 @@ const webServer = {
 
     return webServer
   }
-
 }
-
 
 module.exports = webServer

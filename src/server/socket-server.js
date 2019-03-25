@@ -1,6 +1,10 @@
 const socket = require('socket.io')
-let io
 
+const mainConsts = require('../const/main.const')
+
+const DICTIONARY_SUFFIX = 'Dictionary'
+
+let io
 
 const socketServer = {
 
@@ -12,7 +16,8 @@ const socketServer = {
 
   registerSocketDictionaries: function (dictionaries) {
     dictionaries.map(function (name) {
-      var dictionary = require('../routes/socket/' + name + 'Dictionary')
+      const dictionary = require(`${mainConsts.ROUTES_SOCKET_PATH}/${name}${DICTIONARY_SUFFIX}`)
+
       socketServer.registerSocketMessages(dictionary)
     })
   },
@@ -20,14 +25,14 @@ const socketServer = {
 
   registerSocketMessages: function (dictionary) {
     try {
-      var nsp = io.of(dictionary.namespace)
+      const nsp = io.of(dictionary.namespace)
 
       nsp.on(
         'connection', function (socket) {
           console.log('Socket (%s) connection by client - id: %s', dictionary.namespace, socket.id)
 
           Object.keys(dictionary.messages).map(function (id) {
-            var msg = dictionary.messages[id]
+            const msg = dictionary.messages[id]
 
             socketServer.joinSocketRoom(socket, msg)
 
