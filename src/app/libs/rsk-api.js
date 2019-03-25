@@ -3,7 +3,7 @@ const querystring = require('querystring')
 const buffer      = require('buffer')
 const request     = require('request')
 
-const rskConf = require('../config/rsk-conf')
+const rskConf = require('../../config/rsk-conf')
 
 const RskApi = function (conf) {
   this.appId     = conf.auth.appId

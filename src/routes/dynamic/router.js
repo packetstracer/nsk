@@ -23,7 +23,7 @@ router
 router
   .route('/socket-test')
   .get(function (req, res) {
-    const controller = require('../../controllers/socket-test.ctrl.js')
+    const controller = require('../../app/controllers/socket-test.ctrl.js')
 
     // controller.run()
 

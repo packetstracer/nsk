@@ -26,7 +26,7 @@ const expressAppFactory = {
 
   configApp: function () {
     app.set('view engine', 'pug')
-    app.set('views', './app/views')
+    app.set('views', './src/views')
 
     // set App middleware stack
     // app.use(favicon('../public/favicon.ico'))
@@ -50,7 +50,7 @@ const expressAppFactory = {
 
   enableRouter: function (expressApp, type, routersConf) {
     if (type !== 'static') {
-      const router = require(`../app/routes/${type}/router`)
+      const router = require(`../routes/${type}/router`)
       expressApp.use(routersConf[type].urlPrefix, router)
     }
     else {

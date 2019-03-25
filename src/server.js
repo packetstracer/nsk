@@ -1,5 +1,5 @@
 const express  = require('express')
-const conf     = require('./app/config/server')
+const conf     = require('./config/server')
 const colors   = require('colors')
 
 const webServer         = require('./server/web-server')

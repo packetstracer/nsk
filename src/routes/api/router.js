@@ -1,7 +1,7 @@
 const express = require('express')
 
-const Bear   = require('../../models/bear')
-const rskApi = require('../../libs/rsk-api')
+const Bear   = require('../../app/models/bear')
+const rskApi = require('../../app/libs/rsk-api')
 
 
 const router = express.Router()
@@ -50,7 +50,7 @@ router
 
 
   .post(function (req, res) {
-    const apiMsg = require('./app/messages/api-msg')
+    const apiMsg = require('./src/messages/api-msg')
 
     if (!req.body.name) {
       res.json({error: apiMsg.error_api_wrong_content})

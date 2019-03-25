@@ -12,7 +12,7 @@ const socketServer = {
 
   registerSocketDictionaries: function (dictionaries) {
     dictionaries.map(function (name) {
-      var dictionary = require('../app/socket/' + name + 'Dictionary')
+      var dictionary = require('../routes/socket/' + name + 'Dictionary')
       socketServer.registerSocketMessages(dictionary)
     })
   },
