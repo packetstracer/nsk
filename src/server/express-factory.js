@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
-const favicon      = require('serve-favicon')
+const favicon = require('serve-favicon')
 
 const mainConsts = require('../const/main.const')
 
@@ -55,8 +55,13 @@ const expressAppFactory = {
       expressApp.use(routersConf[type].urlPrefix, router)
     }
     else {
-      expressApp.use(express.static('..' + routersConf[type].path))
+      const publicPath = expressAppFactory.getPublicPath(routersConf[type].path)
+      expressApp.use(express.static(publicPath))
     }
+  },
+
+  getPublicPath: function (relativePublicPath) {
+    return `${mainConsts.ROOT_PATH}${relativePublicPath}`
   }
 
 }
