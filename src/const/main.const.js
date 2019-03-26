@@ -11,6 +11,10 @@ const ROUTES_MOCK_PATH = `${ROUTES_PATH}/mock`
 const ROUTES_SOCKET_PATH = `${ROUTES_PATH}/socket`
 const SERVER_PATH = `${SRC_PATH}/server`
 const CERTS_PATH = `${ROOT_PATH}/certs`
+const VIEWS_PATH = `${APP_PATH}/views`
+
+const TEMPLATE_ENGINE = 'pug'
+
 
 module.exports = {
   ROOT_PATH,
@@ -23,5 +27,7 @@ module.exports = {
   ROUTES_MOCK_PATH,
   ROUTES_SOCKET_PATH,
   SERVER_PATH,
-  CERTS_PATH
+  CERTS_PATH,
+  VIEWS_PATH,
+  TEMPLATE_ENGINE
 }

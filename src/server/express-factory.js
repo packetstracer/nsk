@@ -1,7 +1,9 @@
-const express      = require('express')
-const bodyParser   = require('body-parser')
+const express = require('express')
+const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 // const favicon      = require('serve-favicon')
+
+const mainConsts = require('../const/main.const')
 
 let app
 
@@ -25,8 +27,8 @@ const expressAppFactory = {
   },
 
   configApp: function () {
-    app.set('view engine', 'pug')
-    app.set('views', './src/views')
+    app.set('view engine', mainConsts.TEMPLATE_ENGINE)
+    app.set('views', mainConsts.VIEWS_PATH)
 
     // set App middleware stack
     // app.use(favicon('../public/favicon.ico'))
@@ -50,7 +52,7 @@ const expressAppFactory = {
 
   enableRouter: function (expressApp, type, routersConf) {
     if (type !== 'static') {
-      const router = require(`../routes/${type}/router`)
+      const router = require(`${mainConsts.ROUTES_PATH}/${type}/router`)
       expressApp.use(routersConf[type].urlPrefix, router)
     }
     else {
