@@ -4,28 +4,25 @@ const mainConsts = require('../const/main.const')
 
 const DICTIONARY_SUFFIX = 'Dictionary'
 
-let io
-
 const socketServer = {
+  io: null,
 
   createSocketServer: function (httpServer, conf) {
-    io = socket(httpServer)
+    socketServer.io = socket(httpServer)
     socketServer.registerSocketDictionaries(conf.dictionaries)
   },
-
 
   registerSocketDictionaries: function (dictionaries) {
     dictionaries.map(function (name) {
       const dictionary = require(`${mainConsts.ROUTES_SOCKET_PATH}/${name}${DICTIONARY_SUFFIX}`)
 
-      socketServer.registerSocketMessages(dictionary)
+      socketServer.registerSocketDictionary(dictionary)
     })
   },
 
-
-  registerSocketMessages: function (dictionary) {
+  registerSocketDictionary: function (dictionary) {
     try {
-      const nsp = io.of(dictionary.namespace)
+      const nsp = socketServer.io.of(dictionary.namespace)
 
       nsp.on(
         'connection', function (socket) {
@@ -51,14 +48,12 @@ const socketServer = {
     }
   },
 
-
   joinSocketRoom: function (socket, msg) {
     if (!!msg.room) { // && !socket.adapter.rooms[msg.room]
       console.log('Socket joining room "%s" by client: %s', msg.room, socket.id)
       socket.join(msg.room)
     }
   },
-
 
   emitSocketMessage: function (socket, msg, ev) {
     if (!!msg.response && !!msg.response.id) {
@@ -80,6 +75,5 @@ const socketServer = {
   }
 
 }
-
 
 module.exports = socketServer

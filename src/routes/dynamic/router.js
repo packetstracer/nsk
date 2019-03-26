@@ -1,36 +1,34 @@
 const express = require('express')
-const router  = express.Router()
+const router = express.Router()
 
+const mainConsts = require('../../const/main.const')
 
-// route middleware for preprocessing
+// route middleware for pre processing
 router.use(function (req, res, next) {
-  console.log('Dynamic request: ' + req.method + ' ' + req.originalUrl)
+  console.log(`Dynamic request: ${req.method} ${req.originalUrl}`)
   next()
 })
-
 
 // Dynamic Pages Route Handling
 router
   .route('/test')
   .get(function (req, res) {
     res.render('test', {
-      title  : 'Dinámico o ke ase!!!',
-      testVar: 'jade dynamic content'
+      title: 'Dynamic Content Page!!!',
+      testVar: 'pug dynamic content'
     })
   })
-
 
 router
   .route('/socket-test')
   .get(function (req, res) {
-    const controller = require('../../app/controllers/socket-test.ctrl.js')
+    const controller = require(`${mainConsts.APP_PATH}/controllers/socket-test.ctrl.js`)
 
-    // controller.run()
+    controller.run()
 
     res.render('socket-test', {
-      title: 'Socket o ke ase!!!'
+      title: 'Socket Test Page!!!'
     })
   })
-
 
 module.exports = router

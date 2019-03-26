@@ -6,7 +6,7 @@ const lkxDictionary = {
       room: 'pinpad',
 
       callback: function (ev) {
-
+        console.log('Socket (lkx) executing callback')
       },
 
       response: {

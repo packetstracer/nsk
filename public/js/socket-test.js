@@ -1,27 +1,26 @@
-var socket = io();
+const socket = io()
 
-var messageListEl = document.querySelector('ul#messages');
-var submitEl      = document.querySelector('input#send-button');
-var messageEl     = document.querySelector('input#message');
+let messageListEl = document.querySelector('ul#messages')
+const submitEl = document.querySelector('input#send-button')
+let messageEl = document.querySelector('input#message')
 
 socket.on('socket-test:message-received', function (ev) {
-  var messageItemEl = document.createElement('li');
+  let messageItemEl = document.createElement('li')
 
-  messageItemEl.innerHTML = ev.message;
-  messageListEl.appendChild(messageItemEl);
-  messageListEl.scrollTop = messageListEl.scrollHeight;
-});
-
+  messageItemEl.innerHTML = ev.message
+  messageListEl.appendChild(messageItemEl)
+  messageListEl.scrollTop = messageListEl.scrollHeight
+})
 
 submitEl.addEventListener('click', function (e) {
-  e.preventDefault();
-  e.stopPropagation();
+  e.preventDefault()
+  e.stopPropagation()
 
   if (!messageEl.value) {
-    return false;
+    return false
   }
 
-  console.log('Socket message sent to server: ' + messageEl.value);
-  socket.emit('socket-test:message-sent', { message: messageEl.value });
-  messageEl.value = '';
-});
+  console.log('Socket message sent to server: ' + messageEl.value)
+  socket.emit('socket-test:message-sent', {message: messageEl.value})
+  messageEl.value = ''
+})

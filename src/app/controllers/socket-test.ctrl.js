@@ -1,15 +1,12 @@
 const BaseController = require("./base.ctrl")
-const socket = require('socket.io')
 
+const socketServer = require('../../server/socket-server')
 
 const SocketTestCtrl = BaseController.extend(
   {
     run: function (req, res, next) {
-      // socket messages declaration moved to server.js
       try {
-        const io = socket(server)
-
-        io.on(
+        socketServer.io.on(
           'connection', function (socket) {
             console.log('Socket connection by client, id: ' + socket.id)
 
@@ -22,7 +19,7 @@ const SocketTestCtrl = BaseController.extend(
             socket.on(
               'socket-test:message-sent', function (ev) {
                 console.log('Socket message received: ' + ev.message)
-                io.emit('socket-test:message-received', {message: ev.message})
+                socketServer.io.emit('socket-test:message-received', {message: ev.message})
               }
             )
           }
