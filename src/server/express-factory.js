@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
-// const favicon      = require('serve-favicon')
+const favicon      = require('serve-favicon')
 
 const mainConsts = require('../const/main.const')
 
@@ -31,8 +31,7 @@ const expressAppFactory = {
     app.set('views', mainConsts.VIEWS_PATH)
 
     // set App middleware stack
-    // app.use(favicon('../public/favicon.ico'))
-    // app.use(favicon(__dirname + '/public/favicon.ico'))
+    app.use(favicon(`${mainConsts.PUBLIC_PATH}/favicon.ico`))
     app.use(bodyParser.urlencoded({extended: true}))
     app.use(bodyParser.json())
     app.use(cookieParser())

@@ -2,6 +2,7 @@
 const ROOT_PATH = __basedir
 
 const SRC_PATH = `${ROOT_PATH}/src`
+const PUBLIC_PATH = `${ROOT_PATH}/public`
 const APP_PATH = `${SRC_PATH}/app`
 const CONFIG_PATH = `${SRC_PATH}/config`
 const ROUTES_PATH = `${SRC_PATH}/routes`
@@ -19,6 +20,7 @@ const TEMPLATE_ENGINE = 'pug'
 module.exports = {
   ROOT_PATH,
   SRC_PATH,
+  PUBLIC_PATH,
   APP_PATH,
   CONFIG_PATH,
   ROUTES_PATH,
