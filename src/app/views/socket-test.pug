@@ -6,10 +6,16 @@ block content
   h2 NSK Socket test
 
   div#socket-test
+    h3 Chat
     ul#messages
 
+    h3 Broadcast
+    ul#broadcast-messages
+
     input#message(type='text', name='message', paceholder='type your message...')
+
     input#send-button(type='button', value='Send')
+    input#broadcast-button(type='button', value='Broadcast')
 
 
   script(type='text/javascript', src='/socket.io/socket.io.js')

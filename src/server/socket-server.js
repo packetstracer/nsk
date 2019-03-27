@@ -16,53 +16,59 @@ const socketServer = {
     dictionaries.map(function (name) {
       const dictionary = require(`${mainConsts.ROUTES_SOCKET_PATH}/${name}${DICTIONARY_SUFFIX}`)
 
-      socketServer.registerSocketDictionary(dictionary)
+      socketServer.registerSocketDictionary(dictionary, name)
     })
   },
 
-  registerSocketDictionary: function (dictionary) {
+  registerSocketDictionary: function (dictionary, name) {
     try {
-      const nsp = socketServer.io.of(dictionary.namespace)
+      const nsp = dictionary.namespace ? socketServer.io.of(dictionary.namespace) : socketServer.io
+
+      console.log('Socket :: registering dictionary :: name: %s - namespace: %s', name, dictionary.namespace)
 
       nsp.on(
         'connection', function (socket) {
-          console.log('Socket (%s) connection by client - id: %s', dictionary.namespace, socket.id)
+          console.log('Socket :: connecting :: client: %s - namespace: %s', socket.id, dictionary.namespace)
 
-          Object.keys(dictionary.messages).map(function (id) {
-            const msg = dictionary.messages[id]
+          Object.keys(dictionary.messages).map(function (messageId) {
+            const message = dictionary.messages[messageId]
 
-            socketServer.joinSocketRoom(socket, msg)
-
-            console.log('Registering message in namespace#socket: %s - client: %s', socket.id, id)
-            socket.on(id, function (ev) {
-              !!msg.callback && msg.callback(ev)
-              socketServer.emitSocketMessage(socket, msg, ev)
-            })
+            socketServer.joinSocketRoom(socket, message)
+            socketServer.registerMessage(socket, messageId, message)
           })
         }
       )
     }
     catch (e) {
-      console.log('Socket Error: %s', e.message)
+      console.log('Socket :: Error :: message: %s', e.message)
       throw(e)
     }
   },
 
+  registerMessage: function (socket, messageId, message) {
+    console.log('Socket :: registering message :: client: %s - namespace: %s - message: %s', socket.id, message.namespace, messageId)
+
+    socket.on(messageId, function (ev) {
+      !!message.callback && message.callback(ev)
+      socketServer.emitSocketMessage(socket, message, ev)
+    })
+  },
+
   joinSocketRoom: function (socket, msg) {
     if (!!msg.room) { // && !socket.adapter.rooms[msg.room]
-      console.log('Socket joining room "%s" by client: %s', msg.room, socket.id)
+      console.log('Socket :: joining room :: client: %s - room: "%s"', socket.id, msg.room)
       socket.join(msg.room)
     }
   },
 
   emitSocketMessage: function (socket, msg, ev) {
     if (!!msg.response && !!msg.response.id) {
-      console.log('Socket sending message to client %s in room %s: %s', socket.id, msg.room, msg.response.id)
-      socket.emit(msg.response.id, msg.response.data(ev, socket))
+      console.log('Socket :: sending message :: client %s - room %s - message: %s', socket.id, msg.room, msg.response.id)
+      socketServer.io.emit(msg.response.id, msg.response.data(ev, socket))
     }
 
     if (!!msg.broadcast && !!msg.broadcast.id) {
-      console.log('Socket broadcasting message by client %s: %s', socket.id, msg.broadcast.id)
+      console.log('Socket :: broadcasting message :: client: %s - message: %s', socket.id, msg.broadcast.id)
 
       // if in a room just broadcast into the room
       if (!!msg.room) {

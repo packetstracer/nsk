@@ -1,31 +1,31 @@
-const lkxDictionary = {
-  'namespace': '/lkx-sparq',
+const nskDictionary = {
+  'namespace': false,
 
   messages: {
-    'socket-lkx:message-sent': {
-      room: 'pinpad',
+    'socket-nsk2:message-sent': {
+      // room: 'test-room',
 
       callback: function (ev) {
-        console.log('Socket (lkx) executing callback')
+        console.log('Socket (nsk) executing callback')
       },
 
       response: {
-        id  : 'socket-lkx:message-received',
+        id  : 'socket-nsk2:message-received',
         data: function (ev) {
           return { message: 'SERVER RESPONSE: ' + ev.message }
         }
       },
 
       broadcast: {
-        id  : 'socket-lkx:message-received',
+        id  : 'socket-nsk2:message-received',
         data: function (ev) {
           return { message: 'SERVER BROADCAST RESPONSE: ' + ev.message }
         }
       }
     },
 
-    'test-message': {
-      room: 'pinpad',
+    'socket-nsk2:test-message': {
+      // room: 'test-room',
 
       callback: function (ev) {
         console.log('Socket executing callback')
@@ -42,4 +42,4 @@ const lkxDictionary = {
 }
 
 
-module.exports = lkxDictionary
+module.exports = nskDictionary

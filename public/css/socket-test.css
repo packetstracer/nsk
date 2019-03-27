@@ -1,15 +1,21 @@
-#socket-test ul#messages {
-    height: 120px;
-    background-color: lightcoral;
-    overflow: scroll;
-    padding: 1rem 2rem;
+#socket-test ul#messages,
+#socket-test ul#broadcast-messages {
+  height: 120px;
+  background-color: lightcoral;
+  overflow: scroll;
+  padding: 1rem 2rem;
 }
 
-#socket-test #messages li {
-    list-style-type: none;
-    padding-bottom: 0.2rem;
+#socket-test ul#broadcast-messages {
+  background-color: blueviolet;
+}
+
+#socket-test #messages li,
+#socket-test #broadcast-messages li {
+  list-style-type: none;
+  padding-bottom: 0.2rem;
 }
 
 #socket-test input#message {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }

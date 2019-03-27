@@ -18,7 +18,8 @@ const conf = {
     //port   : 4002,
     dictionaries: [
       'general',
-      'lkx'
+      'nskNamespace',
+      // 'nskNoNamespace'
     ]
   },
 
