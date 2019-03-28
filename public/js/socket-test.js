@@ -94,7 +94,7 @@ roomEl.addEventListener('click', function (e) {
     return false
   }
 
-  console.log('Socket message sent to channel: ' + messageEl.value)
+  console.log('Socket message sent to room: ' + messageEl.value)
   socket.emit('socket-nsk2:room-message-sent', {message: messageEl.value}, roomName)
   messageEl.value = ''
 })

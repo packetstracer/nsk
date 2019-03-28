@@ -24,8 +24,8 @@ const webServer = {
   },
 
   createSslServer: function (app, conf) {
-    const hskey = fs.readFileSync(`${mainConsts.CERTS_PATH}/lkxa-key.pem`)
-    const hscert = fs.readFileSync(`${mainConsts.CERTS_PATH}/lkxa-cert.pem`)
+    const hskey = fs.readFileSync(`${mainConsts.CERTS_PATH}/nsk-key.pem`)
+    const hscert = fs.readFileSync(`${mainConsts.CERTS_PATH}/nsk-cert.pem`)
 
     const options = {
       key: hskey,
