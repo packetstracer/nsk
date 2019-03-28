@@ -6,20 +6,24 @@ block content
   h2 NSK Socket test
 
   div#socket-test
-    h3 Chat
+    h3 Chat messages
     ul#messages
 
-    h3 Broadcast
+    h3 Broadcast messages
     ul#broadcast-messages
 
     h3 Namespace Nsk
     ul#namespace-messages
 
+    h3 Room Nsk
+    ul#room-messages
+
     input#message(type='text', name='message', paceholder='type your message...')
 
     input#send-button(type='button', value='Send')
     input#broadcast-button(type='button', value='Broadcast')
-    input#send-channel-button(type='button', value='Send to Nsk Namespace')
+    input#namespace-button(type='button', value='Send to Nsk Namespace')
+    input#room-button(type='button', value='Send to Nsk Room')
 
 
   script(type='text/javascript', src='/socket.io/socket.io.js')

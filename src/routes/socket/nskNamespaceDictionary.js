@@ -2,15 +2,13 @@ const nskNamespaceDictionary = {
   namespace: '/nsk',
 
   messages: {
-    'socket-nsk:channel-message-sent': {
-      // room: 'test-room',
-
+    'socket-nsk:namespace-message-sent': {
       callback: function (ev, socket) {
-        console.log('Socket (nsk) executing callback')
+        console.log('Socket (nsk namespace) executing callback')
       },
 
       response: {
-        id: 'socket-nsk:channel-message-received',
+        id: 'socket-nsk:namespace-message-received',
         data: function (ev, socket) {
           return {message: 'nskNamespaceDictionary: ' + ev.message}
         }
@@ -18,8 +16,6 @@ const nskNamespaceDictionary = {
     },
 
     'socket-nsk:test-message': {
-      // room: 'test-room',
-
       callback: function (ev, socket) {
         console.log('Socket executing callback')
       },

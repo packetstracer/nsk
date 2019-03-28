@@ -25,13 +25,11 @@ const socketServer = {
     try {
       const nsp = dictionary.namespace ? socketServer.io.of(dictionary.namespace) : socketServer.io
 
-      console.log('Socket :: registering dictionary :: name: %s - namespace: %s', name, dictionary.namespace ||
-                                                                                        DEFAULT_NAMESPACE_NAME)
+      console.log('Socket :: registering dictionary :: name: %s - namespace: %s', name, dictionary.namespace || DEFAULT_NAMESPACE_NAME)
 
       nsp.on(
         'connection', function (socket) {
-          console.log('Socket :: connecting :: client: %s - namespace: %s', socket.id, socket.nsp.name ||
-                                                                                       DEFAULT_NAMESPACE_NAME)
+          console.log('Socket :: connecting :: client: %s - namespace: %s', socket.id, socket.nsp.name || DEFAULT_NAMESPACE_NAME)
 
           Object.keys(dictionary.messages).map(function (messageId) {
             const message = dictionary.messages[messageId]

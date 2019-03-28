@@ -19,7 +19,7 @@ const conf = {
     dictionaries: [
       'general',
       'nskNamespace',
-      // 'nskNoNamespace'
+      'nskRoom'
     ]
   },
 
