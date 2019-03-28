@@ -1,5 +1,5 @@
 const nskDictionary = {
-  'namespace': false,
+  namespace: false,
 
   messages: {
     'socket-nsk2:message-sent': {
@@ -10,16 +10,9 @@ const nskDictionary = {
       },
 
       response: {
-        id  : 'socket-nsk2:message-received',
+        id: 'socket-nsk2:message-received',
         data: function (ev) {
-          return { message: 'SERVER RESPONSE: ' + ev.message }
-        }
-      },
-
-      broadcast: {
-        id  : 'socket-nsk2:message-received',
-        data: function (ev) {
-          return { message: 'SERVER BROADCAST RESPONSE: ' + ev.message }
+          return {message: 'SERVER RESPONSE: ' + ev.message}
         }
       }
     },
@@ -32,14 +25,13 @@ const nskDictionary = {
       },
 
       response: {
-        id  : 'test-message-received',
+        id: 'test-message-received',
         data: function (ev) {
-          return { message: 'TEST MESSAGE RECEIVED: ' + ev.message }
+          return {message: 'TEST MESSAGE RECEIVED: ' + ev.message}
         }
       }
     }
   }
 }
-
 
 module.exports = nskDictionary

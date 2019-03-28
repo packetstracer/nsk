@@ -1,5 +1,5 @@
 const generalDictionary = {
-  'namespace': false,
+  namespace: false,
 
   messages: {
     'disconnect': {

@@ -1,5 +1,6 @@
 #socket-test ul#messages,
-#socket-test ul#broadcast-messages {
+#socket-test ul#broadcast-messages,
+#socket-test ul#namespace-messages {
   height: 120px;
   background-color: lightcoral;
   overflow: scroll;
@@ -10,8 +11,13 @@
   background-color: blueviolet;
 }
 
+#socket-test ul#namespace-messages {
+  background-color: khaki;
+}
+
 #socket-test #messages li,
-#socket-test #broadcast-messages li {
+#socket-test #broadcast-messages li,
+#socket-test #namespace-messages li {
   list-style-type: none;
   padding-bottom: 0.2rem;
 }
