@@ -4,13 +4,13 @@ const conf = {
   port: 4000,
 
   sslEnabled: true,
-  sslPort   : 4001,
+  sslPort: 4001,
 
   db: {
-    type   : 'mongo',
-    enabled: false,
-    url    : 'mongodb://localhost',
-    dbName : 'nsk-api-node'
+    type: 'mongo',
+    enabled: true,
+    url: 'mongodb://localhost',
+    dbName: 'nsk'
   },
 
   socket: {
@@ -26,28 +26,27 @@ const conf = {
   routers: {
     static: {
       enabled: true,
-      path   : '/public'
+      path: '/public'
     },
 
     dynamic: {
-      enabled  : true,
-      server   : 'localhost',
+      enabled: true,
+      server: 'localhost',
       urlPrefix: '/'
     },
 
     api: {
-      enabled  : true,
-      server   : 'localhost',
+      enabled: true,
+      server: 'localhost',
       urlPrefix: '/api'
     },
 
     mock: {
-      enabled  : true,
-      server   : 'localhost',
+      enabled: true,
+      server: 'localhost',
       urlPrefix: '/mock'
     }
   }
 }
-
 
 module.exports = conf
