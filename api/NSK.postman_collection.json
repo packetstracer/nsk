@@ -1,0 +1,284 @@
+{
+	"id": "1559b6e1-e6d4-be09-02fc-27212bdb0598",
+	"name": "NSK",
+	"description": "Node Starter Kit Apis",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [],
+	"folders_order": [
+		"5644e403-74cb-cbd1-ebcf-14d16de6775b",
+		"c75b2dbc-8720-4948-a869-2177801146db"
+	],
+	"folders": [
+		{
+			"id": "3e73fc55-c2b1-436d-a49e-4c0f52c54d37",
+			"name": "Bears",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "1559b6e1-e6d4-be09-02fc-27212bdb0598",
+			"folder": "c75b2dbc-8720-4948-a869-2177801146db",
+			"order": [
+				"02faaf3a-eb72-4677-b1ea-03c1d2335e71",
+				"19b8bb74-4f20-4288-ba64-07210df4df89",
+				"f39f7bab-1586-4cbd-8223-b40ae66f31af",
+				"4d3fa530-94dd-46c2-bc55-7345afba2a9d",
+				"a3633c80-a227-4863-8a3d-b348eda562d0"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "c75b2dbc-8720-4948-a869-2177801146db",
+			"name": "MongoDB",
+			"description": "Api request for MongoDB",
+			"auth": null,
+			"events": null,
+			"collection": "1559b6e1-e6d4-be09-02fc-27212bdb0598",
+			"folder": null,
+			"order": [],
+			"folders_order": [
+				"3e73fc55-c2b1-436d-a49e-4c0f52c54d37"
+			]
+		},
+		{
+			"id": "5644e403-74cb-cbd1-ebcf-14d16de6775b",
+			"name": "Rest API",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "1559b6e1-e6d4-be09-02fc-27212bdb0598",
+			"folder": null,
+			"order": [
+				"f7580515-0aec-0387-29a6-4673df54c7ed",
+				"ef894965-85b7-4aff-a4d5-a69420c14cbc"
+			],
+			"folders_order": []
+		}
+	],
+	"requests": [
+		{
+			"id": "02faaf3a-eb72-4677-b1ea-03c1d2335e71",
+			"name": "Get Bears",
+			"url": "http://{{serverUrl}}/api/bears/",
+			"description": "Get all docs from Bears collection",
+			"data": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "3e73fc55-c2b1-436d-a49e-4c0f52c54d37",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "19b8bb74-4f20-4288-ba64-07210df4df89",
+			"name": "Get Bear by id",
+			"url": "http://{{serverUrl}}/api/bears/:bearId",
+			"description": "Get a Bear by its Id",
+			"data": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "bearId",
+					"value": "5cadc5a89c63b87e72b050f3"
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "3e73fc55-c2b1-436d-a49e-4c0f52c54d37",
+			"headers": "",
+			"pathVariables": {
+				"bearId": "5cadc5a89c63b87e72b050f3"
+			}
+		},
+		{
+			"id": "4d3fa530-94dd-46c2-bc55-7345afba2a9d",
+			"name": "Update Bear",
+			"url": "http://{{serverUrl}}/api/bears",
+			"description": "Add a Bear specifying its name",
+			"data": [
+				{
+					"key": "id",
+					"value": "5cadc5a89c63b87e72b050f3",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "name",
+					"value": "Polar",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "3e73fc55-c2b1-436d-a49e-4c0f52c54d37",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "a3633c80-a227-4863-8a3d-b348eda562d0",
+			"name": "Delete Bear by name",
+			"url": "http://{{serverUrl}}/api/bears",
+			"description": "Add a Bear specifying its name",
+			"data": [
+				{
+					"key": "name",
+					"value": "Panda",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "3e73fc55-c2b1-436d-a49e-4c0f52c54d37",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ef894965-85b7-4aff-a4d5-a69420c14cbc",
+			"name": "Test",
+			"url": "http://{{serverUrl}}/api/test",
+			"description": "Basic test endpoint",
+			"data": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c51bd308-b853-4261-b337-8c88c4b9cbde",
+						"exec": [
+							"//postman.setEnvironmentVariable(\"variable_key\", \"variable_value\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "975112c5-cce7-4fb9-b8ba-aaacfbaddfe2",
+						"exec": [
+							"//tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "5644e403-74cb-cbd1-ebcf-14d16de6775b",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "f39f7bab-1586-4cbd-8223-b40ae66f31af",
+			"name": "Create Bear",
+			"url": "http://{{serverUrl}}/api/bears",
+			"description": "Add a Bear specifying its name",
+			"data": [
+				{
+					"key": "name",
+					"value": "Panda",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "3e73fc55-c2b1-436d-a49e-4c0f52c54d37",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "f7580515-0aec-0387-29a6-4673df54c7ed",
+			"name": "/",
+			"url": "http://{{serverUrl}}/api",
+			"description": "Lkx basic request\n",
+			"data": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b59ff958-3088-4e8d-b648-065a38a60293",
+						"exec": [
+							"//postman.setEnvironmentVariable(\"variable_key\", \"variable_value\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "44b7ecb0-73a1-45fc-891f-355b013efe30",
+						"exec": [
+							"//tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "5644e403-74cb-cbd1-ebcf-14d16de6775b",
+			"headers": "",
+			"pathVariables": {}
+		}
+	]
+}
