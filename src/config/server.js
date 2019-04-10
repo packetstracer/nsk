@@ -9,7 +9,7 @@ const conf = {
   db: {
     type: 'mongo',
     enabled: true,
-    url: 'mongodb://localhost',
+    host: 'mongodb://localhost',
     dbName: 'nsk'
   },
 
@@ -31,19 +31,19 @@ const conf = {
 
     dynamic: {
       enabled: true,
-      server: 'localhost',
+      host: 'localhost',
       urlPrefix: '/'
     },
 
     api: {
       enabled: true,
-      server: 'localhost',
+      host: 'localhost',
       urlPrefix: '/api'
     },
 
     mock: {
       enabled: true,
-      server: 'localhost',
+      host: 'localhost',
       urlPrefix: '/mock'
     }
   }

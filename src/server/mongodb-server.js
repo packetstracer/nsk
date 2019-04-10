@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const mongodbServer = {
   connectDb: function (conf) {
     try {
-      mongoose.connect(`${conf.url}/${conf.dbName}`, { useNewUrlParser: true })
+      mongoose.connect(`${conf.host}/${conf.dbName}`, { useNewUrlParser: true })
 
       const db = mongoose.connection
 
