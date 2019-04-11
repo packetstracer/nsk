@@ -1,4 +1,4 @@
-// @NOTE: execute the script to create de database and its content -> mongo src/db/db-create-nsk.js or mongo localhost:27017 src/db/db-create-nsk.js
+// @NOTE: execute the script to create de database and its content -> mongo src/db/mongo-create-db.js or mongo localhost:27017 src/db/mongo-create-db.js
 // connect to mongo nsk database
 print('Connecting to MongoDB NSK database');
 connection = new Mongo();
