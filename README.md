@@ -30,7 +30,7 @@ _$ mongo localhost:27017 src/db/mongo/mongo-create-db.js_<br/>
 _$ brew install influxdb_<br/>
 _$ brew services start influxdb_<br/>
 _$ influxdb_<br/>
-_$influx -import -path=src/db/influx/influx-create-db.sql -precision=s_
+_$ influx -import -path=src/db/influx/influx-create-db.sql -precision=s_
 
 
 ### Test the features
